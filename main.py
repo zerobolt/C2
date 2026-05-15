@@ -97,7 +97,7 @@ except ImportError as e:
     )
     from telegram.constants import ParseMode
 
-BOT_TOKEN = "8712644339:AAEy9NJnxwQZ7LALvgX9AbqKaZ1Fudpz5ts"
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 ADMIN_ID = 8571274512
 BANNER_URL = "https://res.cloudinary.com/dqxlb29uz/image/upload/v1778756785/bwm_uploads/media-1778756785484.jpg"
 DB_PATH = Path.home() / ".d4rk_c2.db"
