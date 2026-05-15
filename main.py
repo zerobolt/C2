@@ -1456,28 +1456,40 @@ def main():
     print(f"[*] Admin ID: {ADMIN_ID}")
     print(f"[*] Platform: {platform.system()} {platform.release()}")
     print("[*] Running... (Press Ctrl+C to stop)")
-    
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
 
+
+
+    app.run_polling(
+    allowed_updates=Update.ALL_TYPES,
+    close_loop=False,
+    stop_signals=None
+    )
 
 
 
 
 
 def start_bot():
+
+    init_db()
+
     main()
-    return
+
 
 if __name__ == "__main__":
 
     # Start telegram bot in background
-    threading.Thread(target=start_bot, daemon=True).start()
+    threading.Thread(
+        target=start_bot,
+        daemon=True
+    ).start()
 
     # Open Render HTTP port
     port = int(os.environ.get("PORT", 10000))
 
-    app.run(host="0.0.0.0", port=port)
-
-
+    app.run(
+        host="0.0.0.0",
+        port=port
+    )
