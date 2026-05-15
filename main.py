@@ -1,3 +1,17 @@
+from flask import Flask
+import threading
+import os
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "KOV C2 Running"
+
+
+
+
+
 #!/usr/bin/env python3
 import os
 import sys
@@ -1445,5 +1459,25 @@ def main():
     
     app.run_polling(allowed_updates=Update.ALL_TYPES)
 
-if __name__ == "__main__":
+
+
+
+
+
+
+
+def start_bot():
     main()
+    return
+
+if __name__ == "__main__":
+
+    # Start telegram bot in background
+    threading.Thread(target=start_bot, daemon=True).start()
+
+    # Open Render HTTP port
+    port = int(os.environ.get("PORT", 10000))
+
+    app.run(host="0.0.0.0", port=port)
+
+
