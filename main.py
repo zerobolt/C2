@@ -83,8 +83,8 @@ except ImportError as e:
     )
     from telegram.constants import ParseMode
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-ADMIN_ID = 123456789
+BOT_TOKEN = "8712644339:AAEy9NJnxwQZ7LALvgX9AbqKaZ1Fudpz5ts"
+ADMIN_ID = 8571274512
 BANNER_URL = "https://res.cloudinary.com/dqxlb29uz/image/upload/v1778756785/bwm_uploads/media-1778756785484.jpg"
 DB_PATH = Path.home() / ".d4rk_c2.db"
 KEY_PATH = Path.home() / ".d4rk_key.key"
